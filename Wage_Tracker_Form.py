@@ -32,15 +32,16 @@ hide_menu = """
 """
 btn_stl=""" 
 <style>
-.stButton > Button{
+.stButton > Button:hover{
     background-color:green;
     width: 100%;
     text-align: center;
 }
-.stButton > Button:hover{
+.stButton > Button{
     background-color: transparent;
     border: 2px solid green;
     color: white;
+    text-align: center;
 }
 </style>
 """
