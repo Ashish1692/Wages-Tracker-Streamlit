@@ -38,6 +38,7 @@ btn_stl="""
     text-align: center;
 }
 .stButton > Button{
+    width: 100%;
     background-color: transparent;
     border: 2px solid green;
     color: white;
