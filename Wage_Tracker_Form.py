@@ -102,8 +102,8 @@ if submit_button:
                 "Paid By": paidby,
                 "Contents": content,
                 "Amount Paid": amount_paid,
-                "My Share": my_share,
-                "Splitted Amount": splitted_amount,
+                "My Share": my_share.tofixed(0),
+                "Splitted Amount": splitted_amount.tofixed(0),
                 "Friend Count": friend_count,
                 "Description": description,
                 "Status": status
