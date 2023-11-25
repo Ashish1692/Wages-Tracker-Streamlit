@@ -37,6 +37,11 @@ btn_stl="""
     width: 100%;
     text-align: center;
 }
+.stButton > Button:hover{
+    background-color: transparent;
+    border: 2px solid green;
+    color: white;
+}
 </style>
 """
 
