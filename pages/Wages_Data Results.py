@@ -25,7 +25,7 @@ with tab1:
     # Calculate total sum for 'Amount Paid' and add it as a new row in monthly_total DataFrame
     total_monthly_amount = monthly_total['Amount Paid'].sum()
     total_monthly_row = {'Month': 'Total', 'Amount Paid': total_monthly_amount}
-    monthly_total = monthly_total.concat(total_monthly_row, ignore_index=True)
+    monthly_total = monthly_total.append(total_monthly_row, ignore_index=True)
     # Streamlit app
     st.markdown('#### Total Amount Spent Monthly')
     st.write(monthly_total)
@@ -39,7 +39,7 @@ with tab2:
     total_content_amount = content_total['Amount Paid'].sum()
     total_content_row = {'Contents': 'Total',
                          'Amount Paid': total_content_amount}
-    content_total = content_total.concat(total_content_row, ignore_index=True)
+    content_total = content_total.append(total_content_row, ignore_index=True)
     st.markdown('#### Total Amount Spent by Content')
     st.write(content_total)
 
@@ -58,7 +58,7 @@ with tab3:
     # Calculate total sum for 'Amount Paid' and add it as a new row in datewise_total DataFrame
     total_amount_paid = datewise_total['Amount Paid'].sum()
     total_row = {'Date': 'Total', 'Amount Paid': total_amount_paid}
-    datewise_total = datewise_total.concat(total_row, ignore_index=True)
+    datewise_total = datewise_total.append(total_row, ignore_index=True)
 
     st.markdown('#### Total Amount Spent on Each Date')
     st.write(datewise_total)
