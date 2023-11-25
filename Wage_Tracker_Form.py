@@ -77,9 +77,12 @@ if submit_button:
 
         # Calculate My Share
         my_share = amount_paid / friend_count
-
+        
         # Calculate Splitted Amount
         splitted_amount = amount_paid - my_share
+
+        my_share = round(1)
+        splitted_amount = round(1)
 
         # Split Date_Time into separate Date and Time columns
         # Get the current date in the specified format (DD-MM-YYYY)
@@ -102,8 +105,8 @@ if submit_button:
                 "Paid By": paidby,
                 "Contents": content,
                 "Amount Paid": amount_paid,
-                "My Share": my_share.tofixed(0),
-                "Splitted Amount": splitted_amount.tofixed(0),
+                "My Share": my_share,
+                "Splitted Amount": splitted_amount,
                 "Friend Count": friend_count,
                 "Description": description,
                 "Status": status
