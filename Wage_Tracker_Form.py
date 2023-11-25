@@ -31,10 +31,12 @@ hide_menu = """
 </style>
 """
 btn_stl=""" 
+<style>
 .stButton > Button{
     backgound-color:orange;
     width: 50px;
 }
+</style>
 """
 
 # Establishing a Google Sheets connection
