@@ -46,8 +46,8 @@ st.markdown(hide_menu, unsafe_allow_html=True)
 with st.form(key="vendor_form"):
     paidby = st.text_input(label="Paid By*",placeholder="Enter your name")
     content = st.text_input(label="Content*",placeholder="Lunch,Dinner,Breakfast...")
-    amountpaid = st.number_input(label="Amount Paid*",min_value=1,max_value=100_000)
-    friendcount = st.number_input(label="Friend Count*",min_value=1,max_value=25)
+    amountpaid = st.number_input(label="Amount Paid*",max_value=100_000)
+    friendcount = st.number_input(label="Friend Count*",max_value=25)
     description = st.text_area(label="Description*")
     status = st.selectbox(label="Status*", options=statusopt)
 
