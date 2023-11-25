@@ -16,7 +16,7 @@ st.write("### Welcome to Daily Wages Tracker 📆 💵")
 hide_menu = """
 <style>
 #MainMenu{
-    visibility:hidden;
+    display:none;
 }
 </style>
 """
