@@ -31,7 +31,7 @@ hide_menu = """
 </style>
 """
 btn_stl=""" 
-.st-emotion-cache-19rxjzo{
+.stButton > Button{
     backgound-color:orange;
     width: 50px;
 }
