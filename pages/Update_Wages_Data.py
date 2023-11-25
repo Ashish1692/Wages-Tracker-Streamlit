@@ -3,7 +3,7 @@ import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 
 # Establishing a Google Sheets connection
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing data from Google Sheet
 existing_data = conn.read(worksheet="Wage Tracker",

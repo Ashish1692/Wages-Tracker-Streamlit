@@ -8,7 +8,7 @@ st.set_page_config(page_title="Expense Summary", page_icon="📈")
 st.markdown("# Expense Summary")
 
 # Establishing a Google Sheets connection
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
 existing_data_res = conn.read(
     worksheet="Wage Tracker", usecols=list(range(12)), ttl=5)

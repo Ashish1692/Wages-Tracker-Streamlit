@@ -6,7 +6,7 @@ st.set_page_config(page_title="WAGES DATA", page_icon="📄")
 st.markdown("### WAGES DATA")
 
 # Establishing a Google Sheets connection
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing data from Google Sheets
 existing_data = conn.read(worksheet="Wage Tracker",
