@@ -13,6 +13,19 @@ existing_data = existing_data.dropna(how="all")
 df = pd.DataFrame(existing_data)
 
 
+hide_menu = """
+<style>
+.st-emotion-cache-zq5wmm{
+    display:none;
+}
+.st-emotion-cache-cio0dv{
+    display:none;
+}
+</style>
+"""
+st.markdown(hide_menu, unsafe_allow_html=True)
+
+
 def search_row():
     st.title('Search Row')
 

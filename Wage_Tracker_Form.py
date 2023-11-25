@@ -21,6 +21,10 @@ hide_menu = """
 .st-emotion-cache-1p1m4ay{
     display:none;
 }
+.st-emotion-cache-cio0dv{
+    display:none;
+}
+
 </style>
 """
 

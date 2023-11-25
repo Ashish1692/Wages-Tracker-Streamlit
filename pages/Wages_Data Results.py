@@ -14,6 +14,19 @@ existing_data_res = conn.read(
     worksheet="Wage Tracker", usecols=list(range(12)), ttl=5)
 existing_data_res = existing_data_res.dropna(how="all")
 
+hide_menu = """
+<style>
+.st-emotion-cache-zq5wmm{
+    display:none;
+}
+.st-emotion-cache-cio0dv{
+    display:none;
+}
+</style>
+"""
+st.markdown(hide_menu, unsafe_allow_html=True)
+
+
 tab1, tab2, tab3, tab4 = st.tabs(
     ["Monthly", "Content Wise", "Date Wise", "Total Sums"])
 
