@@ -33,7 +33,7 @@ hide_menu = """
 btn_stl=""" 
 <style>
 .stButton > Button{
-    backgound-color:orange;
+    background-color:green;
     width: 100%;
     text-align: center;
 }
