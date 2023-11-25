@@ -34,7 +34,8 @@ btn_stl="""
 <style>
 .stButton > Button{
     backgound-color:orange;
-    width: 50%;
+    width: 100%;
+    text-align: center;
 }
 </style>
 """
