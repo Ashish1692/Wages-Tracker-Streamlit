@@ -16,7 +16,7 @@ st.write("### Welcome to Daily Wages Tracker 📆 💵")
 
 
 # Establishing a Google Sheets connection
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing vendors data
 existing_data = conn.read(worksheet="Wage Tracker", usecols=list(range(11)), ttl=5)
