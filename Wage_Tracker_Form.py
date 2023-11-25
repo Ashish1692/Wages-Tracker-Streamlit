@@ -18,6 +18,9 @@ hide_menu = """
 #MainMenu{
     display:none;
 }
+.st-emotion-cache-1p1m4ay{
+    display:none;
+}
 </style>
 """
 
