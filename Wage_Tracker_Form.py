@@ -48,7 +48,7 @@ with st.form(key="vendor_form"):
     content = st.text_input(label="Content*",placeholder="Lunch,Dinner,Breakfast...")
     amountpaid = st.number_input(label="Amount Paid*",max_value=100_000)
     friendcount = st.number_input(label="Friend Count*",max_value=25)
-    description = st.text_area(label="Description*")
+    description = st.text_area(label="Description*",placeholder="Decsribe your content...")
     status = st.selectbox(label="Status*", options=statusopt)
 
     # Getting current date and time
