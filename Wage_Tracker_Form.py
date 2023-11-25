@@ -13,18 +13,26 @@ st.set_page_config(
 st.write("### Welcome to Daily Wages Tracker 📆 💵")
 
 # st.sidebar.success("Select a demo above.")
-
+hide_menu = """
+<style>
+#MainMenu{
+    visibility:hidden;
+}
+</style>
+"""
 
 # Establishing a Google Sheets connection
 conn = st.connection("gsheets", type=GSheetsConnection)
+# conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing vendors data
-existing_data = conn.read(worksheet="Wage Tracker", usecols=list(range(11)), ttl=5)
+existing_data = conn.read(worksheet="Wage Tracker",
+                          usecols=list(range(11)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 
 
 statusopt = ["Done", "Pending", "Cancelled"]
-
+st.markdown(hide_menu, unsafe_allow_html=True)
 with st.form(key="vendor_form"):
     paidby = st.text_input(label="Paid By*")
     content = st.text_input(label="Content*")
