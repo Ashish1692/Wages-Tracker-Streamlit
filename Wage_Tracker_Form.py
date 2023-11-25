@@ -30,22 +30,7 @@ hide_menu = """
 
 </style>
 """
-btn_stl=""" 
-<style>
-.stButton > Button:hover{
-    background-color:green;
-    width: 100%;
-    text-align: center;
-}
-.stButton > Button{
-    width: 100%;
-    background-color: transparent;
-    border: 2px solid green;
-    color: white;
-    text-align: center;
-}
-</style>
-"""
+
 
 # Establishing a Google Sheets connection
 conn = st.connection("gsheets", type=GSheetsConnection)
@@ -77,7 +62,7 @@ with st.form(key="vendor_form"):
 
     # Mark mandatory fields
     st.markdown("**required*")
-    st.markdown(btn_stl,unsafe_allow_html=True);
+
     submit_button = st.form_submit_button(label="Submit")
 
     # If the submit button is pressed
