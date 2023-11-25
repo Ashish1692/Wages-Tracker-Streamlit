@@ -49,12 +49,12 @@ with st.form(key="vendor_form"):
     status = st.selectbox(label="Status*", options=statusopt)
 
     # Getting current date and time
-    current_datetime = datetime.now()
+    current_datetime = datetime.now(tz=ZoneInfo("Asia/Kolkata"))
 
     # Displaying current date and time fields
     st.text(
         # f"Current Date and Time: {current_datetime.strftime('%d/%m/%Y %I:%M:%S %p')}")
-        f"Current Date and Time: {datetime.now().strftime('%d-%m-%Y %I:%M %p')}")
+        f"Current Date and Time: {current_datetime.strftime('%d-%m-%Y %I:%M %p')}")
 
     # Mark mandatory fields
     st.markdown("**required*")
