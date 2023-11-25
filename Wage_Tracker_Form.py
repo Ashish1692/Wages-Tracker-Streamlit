@@ -81,8 +81,8 @@ if submit_button:
         # Calculate Splitted Amount
         splitted_amount = amount_paid - my_share
 
-        my_share = round(my_share,1)
-        splitted_amount = round(splitted_amount,1)
+        my_share = round(my_share)
+        splitted_amount = round(splitted_amount)
 
         # Split Date_Time into separate Date and Time columns
         # Get the current date in the specified format (DD-MM-YYYY)
