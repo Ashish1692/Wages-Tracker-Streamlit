@@ -45,7 +45,7 @@ existing_data = existing_data.dropna(how="all")
 statusopt = ["Done", "Pending", "Cancelled"]
 st.markdown(hide_menu, unsafe_allow_html=True)
 with st.form(key="vendor_form"):
-    paidby = st.text_input(label="Paid By*",placeholder="Enter your name")
+    paidby = st.text_input(label="Paid By*",placeholder="Enter your name",value="Ashish Moghe")
     content = st.text_input(label="Content*",placeholder="Lunch,Dinner,Breakfast...")
     amountpaid = st.number_input(label="Amount Paid*",max_value=100_000)
     friendcount = st.number_input(label="Friend Count*",max_value=25)
