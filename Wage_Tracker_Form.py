@@ -38,7 +38,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing vendors data
 existing_data = conn.read(worksheet="Wage Tracker",
-                          usecols=list(range(11)), ttl=5)
+                          usecols=list(range(11)), ttl=2)
 existing_data = existing_data.dropna(how="all")
 
 
@@ -49,7 +49,7 @@ with st.form(key="vendor_form"):
     content = st.text_input(label="Content*",placeholder="Lunch,Dinner,Breakfast...")
     amountpaid = st.number_input(label="Amount Paid*",max_value=100_000)
     friendcount = st.number_input(label="Friend Count*",max_value=25)
-    description = st.text_area(label="Description*",placeholder="Decsribe your content...")
+    description = st.text_area(label="Description*",placeholder="Describe your content...")
     status = st.text_input(label="Status*", value="Done")
 
     # Getting current date and time
