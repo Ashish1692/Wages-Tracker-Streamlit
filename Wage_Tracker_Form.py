@@ -120,5 +120,4 @@ if submit_button:
 
         # Update Google Sheets with the updated DataFrame containing all records
         conn.update(worksheet="Wage Tracker", data=existing_data)
-
         st.success("Successfully submitted!")
