@@ -38,7 +38,7 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing vendors data
 existing_data = conn.read(worksheet="Wage Tracker",
-                          usecols=list(range(11)), ttl=5)
+                          usecols=list(range(11)), ttl=2)
 existing_data = existing_data.dropna(how="all")
 
 
