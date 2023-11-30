@@ -42,16 +42,17 @@ existing_data = conn.read(worksheet="Wage Tracker",
 existing_data = existing_data.dropna(how="all")
 
 
-statusopt = ["Done", "Pending", "Cancelled"]
 st.markdown(hide_menu, unsafe_allow_html=True)
 with st.form(key="vendor_form"):
-    paidby = st.text_input(label="Paid By*",placeholder="Enter your name")
-    content = st.text_input(label="Content*",placeholder="Lunch,Dinner,Breakfast...")
-    amountpaid = st.number_input(label="Amount Paid*",max_value=100_000)
-    friendcount = st.number_input(label="Friend Count*",max_value=25)
-    description = st.text_area(label="Description*",placeholder="Decsribe your content...")
-    status = st.selectbox(label="Status*", options=statusopt)
+    paidby = st.text_input(label="Paid By*", placeholder="Enter your name")
+    content = st.text_input(
+        label="Content*", placeholder="Lunch,Dinner,Breakfast...")
+    amountpaid = st.number_input(label="Amount Paid*", max_value=100_000)
+    friendcount = st.number_input(label="Friend Count*", max_value=25)
+    description = st.text_area(label="Description*", placeholder="Description with Status...")
 
+    # Mark mandatory fields
+    st.markdown("**required*")
     # Getting current date and time
     current_datetime = datetime.now(tz=ZoneInfo("Asia/Kolkata"))
 
@@ -60,15 +61,13 @@ with st.form(key="vendor_form"):
         # f"Current Date and Time: {current_datetime.strftime('%d/%m/%Y %I:%M:%S %p')}")
         f"Current Date and Time: {current_datetime.strftime('%d-%m-%Y %I:%M %p')}")
 
-    # Mark mandatory fields
-    st.markdown("**required*")
 
     submit_button = st.form_submit_button(label="Submit")
 
     # If the submit button is pressed
 if submit_button:
     # Check if all mandatory fields are filled
-    if not content or not amountpaid or not status or not description or not friendcount or not paidby:
+    if not content or not amountpaid or not description or not friendcount or not paidby:
         st.warning("Ensure all mandatory fields are filled.")
         st.stop()
     else:
@@ -78,7 +77,7 @@ if submit_button:
 
         # Calculate My Share
         my_share = amount_paid / friend_count
-        
+
         # Calculate Splitted Amount
         splitted_amount = amount_paid - my_share
 
@@ -88,7 +87,8 @@ if submit_button:
         # Split Date_Time into separate Date and Time columns
         # Get the current date in the specified format (DD-MM-YYYY)
         current_date = current_datetime.strftime("%d/%m/%Y")
-        current_time = current_datetime.strftime("%I:%M %p")  # 12-hour format with AM/PM
+        current_time = current_datetime.strftime(
+            "%I:%M %p")  # 12-hour format with AM/PM
 
         # Create 'Month' column from the 'Date'
         # Format: Month-Year (e.g., Nov-2023)
@@ -97,28 +97,28 @@ if submit_button:
         # Create a new row of vendor data
         # Increment serial number based on existing rows
         serial_no = len(existing_data) + 1
-        vendor_data = pd.DataFrame([
-            {
-                "Sr.No": serial_no,
-                "Date": current_date,
-                "Month": month,  # Add the 'Month' column
-                "Time": current_time,
-                "Paid By": paidby,
-                "Contents": content,
-                "Amount Paid": amount_paid,
-                "My Share": my_share,
-                "Splitted Amount": splitted_amount,
-                "Friend Count": friend_count,
-                "Description": description,
-                "Status": status
-            }
-        ])
 
-        # Add the new vendor data to the existing data
-        updated_df = pd.concat(
-            [existing_data, vendor_data], ignore_index=True)
 
-        # Update Google Sheets with the new vendor data
-        conn.update(worksheet="Wage Tracker", data=updated_df)
+    # Create a dictionary for the new record
+        new_record = {
+            "Sr.No": serial_no,
+            "Date": current_date,
+            "Month": month,
+            "Time": current_time,
+            "Paid By": paidby,
+            "Contents": content,
+            "Amount Paid": amount_paid,
+            "My Share": my_share,
+            "Splitted Amount": splitted_amount,
+            "Friend Count": friend_count,
+            "Description": description,
+            "Output": "Done"
+        }
+
+        # Append the new record to the existing_data DataFrame
+        existing_data = existing_data.append(new_record, ignore_index=True)
+
+        # Update Google Sheets with the updated DataFrame containing all records
+        conn.update(worksheet="Wage Tracker", data=existing_data)
 
         st.success("Successfully submitted!")
