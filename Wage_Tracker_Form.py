@@ -99,6 +99,24 @@ if submit_button:
         serial_no = len(existing_data) + 1
 
 
+        if st.button("View Existing Data"):
+           st.subheader("Existing Data in Text Inputs (Read-Only Mode)")
+           search_query = st.text_input("Search by Paid By:")
+
+    # Filter the existing data based on the search query
+           filtered_data = existing_data[existing_data["Paid By"].str.contains(search_query, case=False)]
+
+    # Display the filtered data in text inputs
+          if not filtered_data.empty:
+             for index, row in filtered_data.iterrows():
+                 st.text_input("Sr.No", value=str(row["Sr.No"]), key=f"Sr.No_{index}", disabled=True)
+                 st.text_input("Date", value=row["Date"], key=f"Date_{index}", disabled=True)
+            # Add other columns you want to display as text inputs
+            # Example: st.text_input("Paid By", value=row["Paid By"], key=f"Paid_By_{index}", disabled=True)
+          else:
+             st.write("No matching records found.")
+        
+
     # Create a dictionary for the new record
         new_record = {
             "Sr.No": serial_no,
