@@ -61,7 +61,7 @@ with tab3:
     existing_data_res['Date'] = pd.to_datetime(existing_data_res['Date'])
 
     # Modify 'Date' column to the desired format (24 Nov 2023)
-    existing_data_res['Date'] = existing_data_res['Date'].dt.strftime("%d/%m/%Y")
+    existing_data_res['Date'] = existing_data_res['Date'].dt.strftime("%b/%d/%Y")
 
     # Grouping data for date-wise total amount paid
     datewise_total = existing_data_res.groupby(
