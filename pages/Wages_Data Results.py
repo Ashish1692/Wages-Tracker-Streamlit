@@ -72,7 +72,7 @@ with tab3:
     total_row = {'Date': 'Total', 'Amount Paid': total_amount_paid}
     datewise_total = datewise_total.append(total_row, ignore_index=True)
 
-    st.markdown('#### Total Amount Spent on Each Date')
+    st.markdown('#### Total Amount Spent on Each Date(m/d/y)')
     st.write(datewise_total)
 
 with tab4:
