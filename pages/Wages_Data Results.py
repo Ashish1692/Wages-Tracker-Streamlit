@@ -62,7 +62,7 @@ with tab3:
 
     # Modify 'Date' column to the desired format (24 Nov 2023)
     existing_data_res['Date'] = existing_data_res['Date'].dt.strftime(
-        '%d %m %Y')
+        '%d %b %Y')
 
     # Grouping data for date-wise total amount paid
     datewise_total = existing_data_res.groupby(
