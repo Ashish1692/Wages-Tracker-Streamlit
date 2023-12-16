@@ -13,7 +13,7 @@ st.set_page_config(
     page_title="Received Pay",
     page_icon="💹",
 )
-st.write("### Welcome to Daily Wages Tracker 📆 💵")
+st.write("### Welcome to Received Pay Tracker 📆 💵")
 
 # st.sidebar.success("Select a demo above.")
 hide_menu = """
