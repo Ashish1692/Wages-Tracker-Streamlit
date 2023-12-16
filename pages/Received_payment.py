@@ -33,8 +33,8 @@ hide_menu = """
 
 
 # Establishing a Google Sheets connection
-conn = st.connection("gsheets", type=GSheetsConnection)
-# conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+# conn = st.connection("gsheets", type=GSheetsConnection)
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
 # Fetch existing vendors data
 existing_data = conn.read(worksheet="Received",
@@ -48,8 +48,8 @@ opt = ['GPay', 'Salary AC', 'Cash', 'Other']
 
 with st.form(key="vendor_form"):
     user_s = st.text_input(label="User*", placeholder="Enter your name", value="Ashish Moghe")
-    from_s = st.multiselect(label="From*",options=opt)
-    to_s = st.multiselect(label="To*",options=opt)
+    from_s = st.selectbox(label="From*",options=opt)
+    to_s = st.selectbox(label="To*",options=opt)
     amount_s = st.number_input(label="Amount*", min_value=1, max_value=1000_000)
     description_s = st.text_area(label="Description*", placeholder="Description..")
 
