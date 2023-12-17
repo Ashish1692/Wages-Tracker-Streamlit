@@ -47,7 +47,7 @@ with st.form(key="vendor_form"):
     paidby = st.text_input(label="Paid By*", placeholder="Enter your name",value="Ashish Moghe")
     content = st.text_input(
         label="Content*", placeholder="Lunch,Dinner,Breakfast...")
-    selected_date = st.date_input("Select a date", datetime.date.today())
+    selected_date = st.date_input("Select a date")
     amountpaid = st.number_input(label="Amount Paid*", max_value=100_000)
     friendcount = st.number_input(label="Friend Count*", min_value=1,max_value=25)
     description = st.text_area(label="Description*", placeholder="Description with Status...")
@@ -87,8 +87,8 @@ if submit_button:
 
         # Split Date_Time into separate Date and Time columns
         # Get the current date in the specified format (DD-MM-YYYY)
+        # current_date = current_datetime.strftime("%d/%m/%Y")
         formatted_date = selected_date.strftime("%d/%m/%Y")
-        current_date = current_datetime.strftime("%d/%m/%Y")
         current_time = current_datetime.strftime(
             "%I:%M %p")  # 12-hour format with AM/PM
 
