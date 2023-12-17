@@ -58,7 +58,9 @@ with st.form(key="vendor_form"):
     current_datetime = datetime.now(tz=ZoneInfo("Asia/Kolkata"))
 
     # Displaying current date and time fields
-    st.text(f"Current Date and Time: {current_datetime.strftime('%d-%m-%Y %I:%M %p')}")
+    st.text(
+        # f"Current Date and Time: {current_datetime.strftime('%d/%m/%Y %I:%M:%S %p')}")
+        f"Current Date and Time: {current_datetime.strftime('%d-%m-%Y %I:%M %p')}")
 
 
     submit_button = st.form_submit_button(label="Submit")
@@ -83,12 +85,19 @@ if submit_button:
         my_share = round(my_share)
         splitted_amount = round(splitted_amount)
 
+        # Split Date_Time into separate Date and Time columns
+        # Get the current date in the specified format (DD-MM-YYYY)
         formatted_date = selected_date.strftime("%d/%m/%Y")
+        current_date = current_datetime.strftime("%d/%m/%Y")
         current_time = current_datetime.strftime(
             "%I:%M %p")  # 12-hour format with AM/PM
 
+        # Create 'Month' column from the 'Date'
+        # Format: Month-Year (e.g., Nov-2023)
         month = current_datetime.strftime("%b-%Y")
 
+        # Create a new row of vendor data
+        # Increment serial number based on existing rows
         serial_no = len(existing_data) + 1
         
 
