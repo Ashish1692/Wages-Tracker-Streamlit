@@ -47,7 +47,7 @@ with st.form(key="vendor_form"):
     paidby = st.text_input(label="Paid By*", placeholder="Enter your name",value="Ashish Moghe")
     content = st.text_input(
         label="Content*", placeholder="Lunch,Dinner,Breakfast...")
-    selected_date = st.date_input("Select a date")
+    selected_date = st.date_input("Select a date",format="DD/MM/YYYY")
     amountpaid = st.number_input(label="Amount Paid*", max_value=100_000)
     friendcount = st.number_input(label="Friend Count*", min_value=1,max_value=25)
     description = st.text_area(label="Description*", placeholder="Description with Status...")
